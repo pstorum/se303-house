@@ -1,16 +1,8 @@
 class House
 
-	def recite
-		value = []
-		for x in 1..12 do
-			value.append(line(x))
-		end
-		return(value.join("\n"))
-	end
-
-	def line(x)
-		output = ""
-		sub_phrases = [	"the house that Jack built",
+	def initialize()
+		@partial_lyrics = [	
+						"the house that Jack built",
 						"the malt that lay in",
 						"the rat that ate",
 						"the cat that killed",
@@ -23,12 +15,29 @@ class House
 						"the farmer sowing his corn that kept",
 						"the horse and the hound and the horn that belonged to"
 					  ]
+	end
+
+	def recite
+		value = []
+		for x in 1..12 do
+			value.append(line(x))
+		end
+		return(value.join("\n"))
+	end
+
+	def line(x)
+		output = ""
 		phrases = ["This is"]
 		(x.downto(1)).each do |y|
-			phrases.append(sub_phrases[y-1])
+			phrases.append(get_partial_lyric(y))
 		end
 		phrases = phrases.join(" ")
 		phrases += ".\n"
 		return phrases
 	end
+
+	def get_partial_lyric(num)
+		@partial_lyrics[num-1]
+	end
+
 end
