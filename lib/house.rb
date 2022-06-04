@@ -1,4 +1,5 @@
 class House
+
 	def recite
 		value = []
 		for x in 1..12 do
@@ -9,20 +10,26 @@ class House
 
 	def line(x)
 		output = ""
-		phrases = [
-			"This is the house that Jack built.\n",
-			"This is the malt that lay in the house that Jack built.\n",
-			"This is the rat that ate the malt that lay in the house that Jack built.\n",
-			"This is the cat that killed the rat that ate the malt that lay in the house that Jack built.\n",
-			"This is the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n",
-			"This is the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n",
-			"This is the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n",
-			"This is the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n",
-			"This is the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n",
-			"This is the rooster that crowed in the morn that woke the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n",
-			"This is the farmer sowing his corn that kept the rooster that crowed in the morn that woke the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n",
-			"This is the horse and the hound and the horn that belonged to the farmer sowing his corn that kept the rooster that crowed in the morn that woke the priest all shaven and shorn that married the man all tattered and torn that kissed the maiden all forlorn that milked the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
-		]
-		output = phrases[x-1]
+		sub_phrases = ["",
+						"the house that Jack built",
+						"the malt that lay in",
+						"the rat that ate",
+						"the cat that killed",
+						"the dog that worried",
+						"the cow with the crumpled horn that tossed",
+						"the maiden all forlorn that milked",
+						"the man all tattered and torn that kissed",
+						"the priest all shaven and shorn that married",
+						"the rooster that crowed in the morn that woke",
+						"the farmer sowing his corn that kept",
+						"the horse and the hound and the horn that belonged to"
+					  ]
+		phrases = ["This is"]
+		(x.downto(1)).each do |y|
+			phrases.append(sub_phrases[y])
+		end
+		phrases = phrases.join(" ")
+		phrases += ".\n"
+		return phrases
 	end
 end
