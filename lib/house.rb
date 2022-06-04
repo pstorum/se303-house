@@ -10,8 +10,7 @@ class House
 
 	def line(x)
 		output = ""
-		sub_phrases = ["",
-						"the house that Jack built",
+		sub_phrases = [	"the house that Jack built",
 						"the malt that lay in",
 						"the rat that ate",
 						"the cat that killed",
@@ -26,7 +25,7 @@ class House
 					  ]
 		phrases = ["This is"]
 		(x.downto(1)).each do |y|
-			phrases.append(sub_phrases[y])
+			phrases.append(sub_phrases[y-1])
 		end
 		phrases = phrases.join(" ")
 		phrases += ".\n"
